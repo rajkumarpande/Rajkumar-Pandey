@@ -1,0 +1,50 @@
+1)whats the purpose of having 2 jre folders
+one inside java and other inside jdk folde
+Answer->One jre is for developing the application and other is for running the application.
+
+2)how many diff ways we ccan write main method inside a java class
+solution->
+public static void main(String[] argument)
+
+public static void main(String argument[])
+
+public static void main(String... args)
+
+public static synchronized void main(String... args)
+
+public static strictfp void main(String... args)
+
+public static final void main(String... args)
+
+
+3)generate a to z using for loop
+solution->
+#include <stdio.h>
+
+int main()
+{
+    int i;
+
+    printf("Alphabets from a - z  \n");
+
+    for(i=97; i<=122; i++)
+    {
+        
+        printf("%c\n", i);
+    }
+
+    return 0;
+}
+
+
+4)what is varargs(java 1.5)
+
+
+
+answer->
+
+Varargs (variable arguments) is a feature introduced in Java 1.5. It allows a method take an arbitrary number of values as arguments.
+When varargs facility is used, it actually first creates an array whose size is the number of arguments passed at the call site,
+ then puts the argument values into the array, and finally passes the array to the method.
+As its definition indicates, varargs is useful when a method needs to deal with an arbitrary number of objects. 
+One good example from Java SDK is String.format(String format, Object... args). The string can format any number of parameters, so varargs is used.
