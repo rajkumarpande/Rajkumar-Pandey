@@ -1,0 +1,134 @@
+1. notepad, os,users , implement interface concept
+Solution:
+Notepad.java
+package com.example;
+
+public interface Notepad{
+	public static final int liscenceExpire=31;
+	void open();
+	 void newfile();
+
+}
+
+WinOS.java
+
+package com.example;
+
+public class WinOS implements Notepad {
+
+	int leftdays=0;
+
+	@Override
+	public void open() {
+	
+		leftdays=Notepad.liscenceExpire-20;
+		
+		System.out.println("open disable :: days left is "+leftdays);
+	}
+
+	@Override
+	public void newfile() {
+		
+		leftdays=leftdays-10;
+		System.out.println("newFile disable:: days left is "+leftdays);
+		
+	}
+
+public void format(){
+		System.out.println("format is done");
+	}
+	
+}
+
+
+User.java
+package com.example;
+
+public class User{
+
+	public static void main(String[] args) {
+		
+		Notepad i1=new WinOS();
+		i1=new WinOS();
+		i1.open();
+		i1.newfile();
+		if(i1 instanceof WinOS){
+			WinOS iObj=(WinOS)i1;
+		iObj.format();
+		}
+		else{
+			System.out.println("something wrong...");
+		}
+		System.out.println("WinOS is expired");
+		
+		
+		
+		
+		i1=new Ubantu();
+		i1.newfile();
+		i1.open();
+		
+		Notepad i2=new Ubantu();
+		i2.open();
+
+		i2.newfile();
+		
+		if(i2 instanceof Ubantu) {
+			
+			Ubantu iObj=(Ubantu)i1;
+			iObj.help();
+		}
+	}
+
+}
+
+Ubantu.java
+
+package com.example;
+
+
+public class Ubantu implements Notepad{
+
+	int leftdays=0;
+
+	@Override
+	public void open() {
+	System.out.println("Ubantu open starts");
+	leftdays=Notepad.liscenceExpire-20;
+	}
+
+	@Override
+	public void newfile() {
+	System.out.println("Newfile of ubantu");	
+	}
+
+	public void help() {
+		System.out.println("help is done");
+		
+	}
+}
+
+
+
+
+
+2. can we override static method of a interface
+Similar to Default Method in Interface, the static method in an interface can bedefined in the interface, but these methods cannot be overridden in Implementation Classes.
+
+
+3. interface I
+	{
+
+	}
+	interface I2{}
+	class A{}
+
+	class B extends A implements I2
+
+
+B ob=new B();
+
+ sysout(ob instanceof B);
+ sysout(ob instanceof A);
+
+
