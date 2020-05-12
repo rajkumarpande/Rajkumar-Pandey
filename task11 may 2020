@@ -1,0 +1,230 @@
+
+
+
+
+Question 1.comparator 
+ Comparator is an interface and can be used to sort collection elements.
+The Comparator provides multiple sorting sequences. In other words, 
+we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+Comparator doesn't affect the original class, i.e., the actual class is not modified.
+Comparator can be used to compare instances of different classes. Comparable is implemented by class which need to define a natural ordering for its objects. Like String 
+
+implements Comparable. 
+
+
+Question 2.
+d.push("welcome");
+        d.push("hllo");
+        d.push("alpha");
+        System.out.println(d);
+        
+        System.out.println(d.pop());
+        System.out.println(d.pop());
+
+
+Solution:
+package com.example;
+
+
+import java.util.LinkedList;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		  LinkedList<String> d=new LinkedList<String>();  
+		
+		d.push("welcome");
+        d.push("hllo");
+        d.push("alpha");
+        System.out.println(d);
+        
+        System.out.println(d.pop());
+        System.out.println(d.pop());
+
+	}
+	
+}
+
+op--->
+[alpha, hllo, welcome]
+alpha
+hllo
+
+
+Question 3.Iterate a map using  map.entry
+for(Map.entry o:m.entrySet()){
+System.out.println(0);
+
+}
+Solution:
+
+package com.example;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Map<Integer,String> m= new HashMap<Integer,String>();
+m.put(1001, "hello");
+m.put(1001, "duplicate");
+
+m.put(1002, "world");
+
+m.put(1004, "wlecome");
+m.put(1005, "Roman");
+
+m.put(1002, "Ajay");
+
+
+
+
+
+
+
+//System.out.print(m)
+//System.out.print(m.get(100001));
+
+//for(Object o:m.entrySet()) {
+	//System.out.print(o);
+
+	
+//}
+
+
+
+for(Map.Entry<Integer,String> o:m.entrySet()) {
+System.out.println(o);
+
+}
+}}
+
+
+Question 4.Can i add list into another list?
+
+Solution:Yes,We can add the list into another list by sunig addAll();
+Here is the example--->
+
+package com.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<String> listSource = new ArrayList<>();
+
+		listSource.add("123");
+		listSource.add("456");
+		System.out.println("Before Adding:"+listSource);
+
+		List<String> listDest   = new ArrayList<>();
+
+		listDest.addAll(listSource);
+System.out.println("After Adding"+listDest);
+	}
+
+}
+
+
+Question 5.Can i add list into set or map?
+
+Solution:Yes we cam add the list into set or map using addAll method as follows
+
+Example for set-->
+		package com.example;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ListExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<String> listSource = new ArrayList<>();
+
+		listSource.add("123");
+		listSource.add("456");
+		System.out.println("Before Adding:"+listSource);
+
+        Set<String> hSet = new HashSet<String>(listSource); 
+
+        hSet.addAll(listSource);
+System.out.println("After Adding"+hSet);
+	}
+
+}
+ Example for map---->
+
+
+
+
+import java.util.ArrayList; 
+import java.util.List; 
+import java.util.Map; 
+import java.util.HashMap; 
+
+
+class Student { 
+
+	private Integer id; 
+
+	private String name; 
+
+	public Student(Integer id, String name) 
+	{ 
+
+		this.id = id; 
+		this.name = name; 
+	} 
+
+	public Integer getId() 
+	{ 
+		return id; 
+	} 
+
+	public String getName() 
+	{ 
+		return name; 
+	} 
+} 
+
+public class GFG { 
+
+	public static void main(String[] args) 
+	{ 
+
+		List<Student> 
+			lt = new ArrayList<Student>(); 
+
+		lt.add(new Student(1, "Geeks")); 
+		lt.add(new Student(2, "For")); 
+		lt.add(new Student(3, "Geeks")); 
+
+		
+		Map<Integer, String> map = new HashMap<>(); 
+
+		for (Student stu : lt) { 
+			map.put(stu.getId(), stu.getName()); 
+		} 
+
+		System.out.println("Map : " + map); 
+	} 
+} 
+
