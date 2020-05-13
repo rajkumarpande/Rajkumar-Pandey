@@ -1,0 +1,38 @@
+
+
+Question1)can we have throwable catch block
+
+Yes,we can use throwable in catch block.
+If we will do this it will not only catch all excepttions,it will
+also catch all errors
+
+try{
+some code
+}
+catch(Throwable t)
+{
+
+
+}
+
+
+Question 2)On which senerio finally block will not be executed
+solution:
+Finally blocked not execute why because
+1)Due to power off and CPU closed
+2)When exception come just before or in finally block
+3)If try and catch thread have dead
+
+
+Question3)What is rethrowing an exception?
+solution:
+Rethrowing an Exception. If a catch block cannot handle the particular exception it has caught , you can rethrow the exception. The rethrow expression (throw with no argument) causes the originally thrown object to be rethrown..
+
+
+Example:
+ catch(NullPointerException ex)
+        {
+            System.out.println("NullPointerException is caught here");
+ 
+            throw ex;     //Re-throwing NullPointerException
+        }
