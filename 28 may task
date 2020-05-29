@@ -1,0 +1,111 @@
+code--->(any language)name
+pass
+submit button'
+admin
+admin
+display only "logged in sucessfully" on lofin.jsp
+else blank page
+
+
+code in servlet------>
+(zip file also available in LoginSession.zip format at--->  https://github.com/rajkumarpande/Rajkumar-Pandey
+
+code-:
+web.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>LoginSession</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+
+
+
+login.jsp
+
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="LoginServlet" method="post">  
+Name:<input type="text" name="name"><br>  
+Password:<input type="password" name="password"><br>  
+<input type="submit" value="login">  
+</form> 
+</body>
+</html>
+
+
+LoginServlet.java
+
+
+import java.io.IOException;  
+import java.io.PrintWriter;  
+  
+import javax.servlet.ServletException;  
+import javax.servlet.http.HttpServlet;  
+import javax.servlet.http.HttpServletRequest;  
+import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpSession;  
+public class LoginServlet extends HttpServlet {  
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  
+                    throws ServletException, IOException {  
+        response.setContentType("text/html");  
+        PrintWriter out=response.getWriter();  
+          
+        String name=request.getParameter("name");  
+        String password=request.getParameter("password");  
+          
+        if(password.equals("admin") && name.equals("admin")){
+        	out.print("login sucessfully...");
+        
+        }  
+        else{  
+            request.getRequestDispatcher("login2.jsp").include(request, response);  
+        }  
+        out.close();  
+    }  
+}  
+
+
+login2.jsp
+
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
